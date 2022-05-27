@@ -3,3 +3,36 @@
     border-style: solid;
     border-color: red;
 } */
+
+/* Main web app container */
+
+.mainWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Square and grids */
+
+.etch-a-sketchWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.etch-a-sketch {
+    height: 25rem;
+    width: 35rem;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 25px;
+}
+
+.btnWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 24px;
+}
