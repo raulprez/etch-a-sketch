@@ -6,6 +6,8 @@ function updateTextInput(val) {
 
 function updateGrid(val) {
 
+    resetGrid();
+
     for (let i=0; i<val; i++) {
 
         let newGrid = document.createElement("div");
@@ -14,8 +16,12 @@ function updateGrid(val) {
         grid.appendChild(newGrid);
         console.log(val);
 
-
     }
 }
 
+
+function resetGrid() {
+    grid = document.getElementById("etch-a-sketch");
+    grid.innerHTML = '';
+}
 
