@@ -27,14 +27,13 @@
     border-style: solid;
     border-color: black;
     border-radius: 25px;
+    display: grid;
 }
 
 .newGrid {
-    border: 2px;
+    border: .5px;
     border-style: solid;
     border-color: red;
-    width: 10px;
-    height: 10px;
 }
 
 .btnWrapper {
