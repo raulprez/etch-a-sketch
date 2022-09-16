@@ -15,18 +15,20 @@
     <div class="mainWrapper">
         <div class="btnWrapper">
             <button type="button" class="btn" value="submit">Draw</button>
-            <button type="button" class="btn" value="submit">Eraser</button>
             <button type="button" class="btn" value="submit">Funky</button>
-            <p id="value">Grid: 1x1</p>
+            <button type="button" class="btn" value="submit">Reset</button>
+            <button type="button" class="btn" value="submit">Eraser</button>
+            
+            <p id="value">Grid: 16x16</p>
 
-            <input id="range" type="range" name="rangeInput" min="1" step="1" max="64" value="1" class="white" 
+            <input id="range" type="range" name="rangeInput" min="1" step="1" max="64" value="16" class="white" 
             onchange="updateTextInput(this.value); updateGrid(this.value);">
 
         </div>
         
         <div class="etch-a-sketchWrapper">
             <div class="etch-a-sketch" id="etch-a-sketch">
-                <div id="newGrid" class="newGrid"></div>
+                
             </div>
         </div>
     </div>
