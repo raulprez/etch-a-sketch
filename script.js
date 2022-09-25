@@ -6,7 +6,27 @@ function updateTextInput(val) {
     let value = document.getElementById("range").value;
     document.getElementById('value').innerHTML =  `Grid: ${val}x${val}`;
     return value;
-  }
+  };
+
+const button = document.getElementsByClassName("btn");
+
+// and we have to addEventListener on every element
+Array.prototype.map.call(button, (b) => {
+    b.addEventListener("click", function(b) {
+        let newColor = b.target.value;
+        console.log(newColor);
+        updateColor(newColor);
+        return newColor;
+    })
+  })
+
+currentColor = ["black"];
+
+function updateColor (newColor) {
+    currentColor.push(newColor)
+    console.log(newColor);
+}
+
 
 function updateGrid(val) {
 
@@ -26,7 +46,8 @@ function updateGrid(val) {
         grid.appendChild(newGrid);
 
         newGrid.addEventListener("mouseover", function (event) {
-        newGrid.style.backgroundColor = "red";
+        newGrid.style.backgroundColor = currentColor[currentColor.length-1];
+
         });
 
         console.log(val);
