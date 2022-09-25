@@ -18,10 +18,12 @@
             <button type="button" class="btn" value="blue">Funky</button>
             <button type="button" class="btn" value="submit">Reset</button>
             <button type="button" class="btn" value="submit">Eraser</button>
-            
+
+            <div id="currentColor">Current Color</div>
+
             <p id="value">Grid: 16x16</p>
 
-            <input id="range" type="range" name="rangeInput" min="1" step="1" max="64" value="16" class="white" 
+            <input id="range" type="range" name="rangeInput" min="16" step="1" max="64" value="16" class="white" 
             onchange="updateTextInput(this.value); updateGrid(this.value);">
 
         </div>

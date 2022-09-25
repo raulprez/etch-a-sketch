@@ -10,10 +10,11 @@ function updateTextInput(val) {
 
 const button = document.getElementsByClassName("btn");
 
-// and we have to addEventListener on every element
+// We have to addEventListener on every element
 Array.prototype.map.call(button, (b) => {
     b.addEventListener("click", function(b) {
         let newColor = b.target.value;
+        document.getElementById("currentColor").innerHTML = newColor;
         console.log(newColor);
         updateColor(newColor);
         return newColor;
@@ -22,8 +23,9 @@ Array.prototype.map.call(button, (b) => {
 
 currentColor = ["black"];
 
+
 function updateColor (newColor) {
-    currentColor.push(newColor)
+    currentColor.push(newColor);
     console.log(newColor);
 }
 
