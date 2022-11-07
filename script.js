@@ -12,7 +12,7 @@ function updateTextInput(val) {
 
 // Empty array initialized to store current color toggled
 
-  currentColor = [];  
+  currentColor = ['black'];  
 
 // Event listeners for buttons
 
