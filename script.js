@@ -60,6 +60,24 @@ function updateGrid(val) {
     }
 }
 
+// Rainbow color function (Use set interval)
+
+function random_rgba() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  document.getElementById("rainbow").innerHTML = "rgb(" + r + "," + g + "," + b + ")";
+}
+
+var randomRGB = setInterval(function() {random_rgba(); }, 1000);
+
+
+
+
+
+
+// Fade color function
+
 function resetGrid() {
     grid = document.getElementById("etch-a-sketch");
     grid.innerHTML = '';
