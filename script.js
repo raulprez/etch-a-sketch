@@ -20,16 +20,29 @@ const button = document.getElementsByClassName("btn");
 
 // Study and understand why this works
 
+let rainbow = false;
+
 Array.prototype.map.call(button, (b) => {
     b.addEventListener("click", function(b) {
-        
-        // Uses the value from the targeted button and displays the current color in HTML
-        let newColor = b.target.value;
-        document.getElementById("currentColor").innerHTML = newColor;
-        
-        // Pushes new color in empty array containing current color
-        currentColor.pop();
-        currentColor.push(newColor); 
+
+      if (b.target.id == 'rainbow') {
+        rainbow = true;
+
+        var rainbowInterval = setInterval(function() {random_rgba(); }, 1);
+          console.log(rainbow)
+
+      } else if (b.target.value != 'rainbow') {
+        rainbow = false;
+        clearInterval(rainbowInterval); 
+        console.log(rainbow)
+                // Uses the value from the targeted button and displays the current color in HTML
+                let newColor = b.target.value;
+                document.getElementById("currentColor").innerHTML = newColor;
+                
+                // Pushes new color in empty array containing current color
+                currentColor.pop();
+                currentColor.push(newColor); 
+      }
     })
   })
 
@@ -66,12 +79,22 @@ function random_rgba() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
-  document.getElementById("rainbow").innerHTML = "rgb(" + r + "," + g + "," + b + ")";
+  document.getElementById("rainbow").value = "rgb(" + r + "," + g + "," + b + ")";
+
+  let randomRGB = "rgb(" + r + "," + g + "," + b + ")";
+
+  if (rainbow == true) {
+    currentColor.pop();
+    currentColor.push(randomRGB); 
+  } else {
+    return
+  }
+
 }
 
-var randomRGB = setInterval(function() {random_rgba(); }, 1000);
 
 
+// https://stackoverflow.com/questions/17636407/javascript-changing-a-divs-background-color-to-a-random-color-on-mouseover
 
 
 
