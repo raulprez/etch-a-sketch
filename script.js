@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     updateGrid(16);
 });
 
+
 // Updates the grid amounts displayed in numbers in HTML
 
 function updateTextInput(val) {
@@ -12,7 +13,8 @@ function updateTextInput(val) {
 
 // Empty array initialized to store current color toggled
 
-  currentColor = ['black'];  
+  currentColor = ['rgb(0,0,0)'];  
+  console.log(currentColor);
 
 // Event listeners for buttons
 
@@ -22,6 +24,7 @@ const button = document.getElementsByClassName("btn");
 
 let rainbow = false;
 let shader = false;
+let regular = true;
 
 Array.prototype.map.call(button, (b) => {
 
@@ -37,44 +40,51 @@ Array.prototype.map.call(button, (b) => {
       } 
       
       else if (b.target.id == 'shader') {
-        shader = true;
+
+        const newGrids = document.querySelectorAll('.newGrid');
+
         rainbow = false;
-        console.log(shader);
+        shader = true;
 
-        if (shader == true) {
+        let r = 255;
+        let g = 255;
+        let b = 255;
 
-          const r = 255;
-          const b = 255;
-          const g = 255;
+        function shader_fun() {
 
-          let shader = "rgb(" + r + "," + g + "," + b + ")";
-          currentColor.pop();
-          currentColor.push(shader); 
+          if (r > 0 || g > 0 || b > 0) {
 
-          grid.onmouseover = function(){
+            r -= 5;
+            g -= 5;
+            b -= 5;
 
-            console.log('shader working');
-            let shaderColor = "rgb(" + (r-20) + "," + (g-20) + "," + (b-20) + ")";
-            console.log(shaderColor);
+          console.log('shader function excecuted');
+          document.getElementById("shader").value = "rgb(" + r + "," + g + "," + b + ")";
+          let shader_color = "rgb(" + r + "," + g + "," + b + ")";
+          
+          if (shader == true) {
             currentColor.pop();
-            currentColor.push(shaderColor); 
+            currentColor.push(shader_color); 
+          }  
+        
+        }}
+        
 
-          };
-
-            
-
-
-        }
-
+        newGrids.forEach((grid) => {
+          grid.addEventListener('mouseover', shader_fun);
+        });
+        
+        console.log ('target succesful');
         
       }
       
-      else if (b.target.value != 'rainbow') {
+      else {
 
         rainbow = false;
         shader = false;
+        regular = true;
+        
         clearInterval(rainbowInterval); 
-        console.log(rainbow)
 
                 // Uses the value from the targeted button and displays the current color in HTML
                 let newColor = b.target.value;
@@ -120,6 +130,7 @@ function random_rgba() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
+
   document.getElementById("rainbow").value = "rgb(" + r + "," + g + "," + b + ")";
 
   let randomRGB = "rgb(" + r + "," + g + "," + b + ")";
@@ -129,6 +140,10 @@ function random_rgba() {
     currentColor.push(randomRGB); 
   } 
 }
+
+// Shader function
+
+
 
 // Fade color function
 
