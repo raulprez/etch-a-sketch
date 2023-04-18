@@ -31,6 +31,7 @@ Array.prototype.map.call(button, (b) => {
     b.addEventListener("click", function(b) {
 
       if (b.target.id == 'rainbow') {
+
         rainbow = true;
         shader = false;
 
@@ -41,10 +42,12 @@ Array.prototype.map.call(button, (b) => {
       
       else if (b.target.id == 'shader') {
 
-        const newGrids = document.querySelectorAll('.newGrid');
-
         rainbow = false;
         shader = true;
+        currentColor.pop();
+
+        const newGrids = document.querySelectorAll('.newGrid');
+
 
         let r = 255;
         let g = 255;
@@ -68,7 +71,6 @@ Array.prototype.map.call(button, (b) => {
           }  
         
         }}
-        
 
         newGrids.forEach((grid) => {
           grid.addEventListener('mouseover', shader_fun);
