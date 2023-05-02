@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 /* Square and grids */
@@ -26,7 +27,6 @@
     border: 2px;
     border-style: solid;
     border-color: black;
-    border-radius: 25px;
     display: grid;
 }
 
@@ -42,4 +42,8 @@
     align-items: flex-start;
     justify-content: center;
     margin: 24px;
+}
+
+#currentColor {
+    display: none;
 }

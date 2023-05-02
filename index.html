@@ -7,34 +7,49 @@
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css"> 
     <title>Etch-A-Sketch</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
     Etch a Sketch
 
     <div class="mainWrapper">
-        <div class="btnWrapper">
-            <button type="button" id="draw" class="btn" value="black">Draw</button>
-            <button type="button" class="btn" value="blue">Funky</button>
-            <button type="button" id="rainbow" class="btn">Rainbow</button>
-            <button type="button" id="shader" class="btn">Shader</button>
-            <button type="button" class="btn" value="green">Fade</button>
-            <button type="button" class="btn" value="white">Eraser</button>
-            <button type="button" class="btn" value="submit">Reset</button>
 
-            <div id="currentColor">Current Color</div>
+        <div class="etch-a-sketchWrapper">
+            <div class="etch-a-sketch" id="etch-a-sketch">
+                
+            </div>
+        </div>
+
+        <div class="btnWrapper">
+
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+
+                <label class="btn btn-secondary active">
+                  <input type="radio" name="options" id="draw" value="black" autocomplete="off" checked> Draw
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="rainbow" autocomplete="off"> Rainbow
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="shader" autocomplete="off"> Shader
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option3" value="white" autocomplete="off"> Ereaser
+                </label>
+                  <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option3" autocomplete="off" onclick="location.reload(true)"> Reset
+                </label>
+
+            </div>
+
+            <div id="currentColor">Current Color</div> 
 
             <p id="value">Grid: 16x16</p>
 
             <input id="range" type="range" name="rangeInput" min="16" step="1" max="64" value="16" class="white" 
             onchange="updateTextInput(this.value); updateGrid(this.value);">
-
-        </div>
-        
-        <div class="etch-a-sketchWrapper">
-            <div class="etch-a-sketch" id="etch-a-sketch">
-                
-            </div>
         </div>
     </div>
 

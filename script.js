@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     updateGrid(16);
 });
 
+// Change active button onclick
+$(document).ready(function() {
+  $('.btn-group-toggle input[type="radio"]').on('change', function() {
+    $('.btn-group-toggle label').removeClass('active');
+    $(this).closest('label').addClass('active');
+  });
+});
+
 
 // Updates the grid amounts displayed in numbers in HTML
 
@@ -142,10 +150,6 @@ function random_rgba() {
     currentColor.push(randomRGB); 
   } 
 }
-
-// Shader function
-
-
 
 // Fade color function
 
